@@ -5,7 +5,7 @@ import pandas as pd
 st.set_page_config(layout='wide')
 
 def get_model():
-    model = joblib.load("files/voting_clf.pkl")
+    model = joblib.load("files/voting_clf.pkl", 'rb')
     return model
 
 st.header('❤️ **Miuul :red[Hearthcare] Project**')
@@ -25,7 +25,7 @@ column_ent.markdown('* Sağlık Bakanlığı verilerine göre, ülkemizde 2021 y
 
 column_ent.subheader('**Dolaşım sistemi hastalıkları kaynaklı ölümlerin %41,8 kadarını iskemik kalp hastalığı oluşturdu**')
 column_ent.markdown("[TÜİK](https://data.tuik.gov.tr/Bulten/Index?p=Olum-ve-Olum-Nedeni-Istatistikleri-2021-45715)")
-column_ent.image('media/kalprahatsizligiveri.png')
+column_ent.image('media/kalprahatsizligiveri.png', 'rb')
 column_ent.write('Dolaşım sistemi hastalıklarından kaynaklı ölümler alt ölüm nedenlerine göre incelendiğinde, ölenlerin %41,8 kadarını iskemik kalp hastalıklarından, %23,3 ise diğer kalp hastalıklarından, %18,9 serebro-vasküler hastalıklardan öldüğü görüldü.')
 
 column_pro.subheader('**Projenin İçeriği**')
@@ -65,7 +65,7 @@ column_pro.write('Kullanılan her veri kümesi, aşağıdaki bağlantıda UCI Ma
 # TAB GRAF
 
 tab_graf.subheader('**Veri Setinin Grafiklerle İfade Edilen Hali**')
-tab_graf.image(['media/age.jpeg', 'media/sex.jpeg',  'media/maxhr.jpeg', 'media/heartdisease.jpeg', 'media/chestpaintype.jpeg', 'media/restingecg.jpeg', 'media/st_slope.jpeg'])
+tab_graf.image(['media/age.jpeg', 'media/sex.jpeg',  'media/maxhr.jpeg', 'media/heartdisease.jpeg', 'media/chestpaintype.jpeg', 'media/restingecg.jpeg', 'media/st_slope.jpeg', 'rb'])
 
 # TAB END
 
@@ -84,7 +84,7 @@ column_cik.markdown("""
 - RestingBP'yi dengede tutmak için sağlıklı ve dengeli beslenmek, sodyum ile beraber işlenmiş gıdalardan uzak durmak, azaltılmış alkol ve kafein tüketimi, stres yönetiminin yanında düzenli kan basıncı kontrolü konularına dikkat etmek gerekiyor.
 - Kolestrol için ise tuz tüketiminin azaltılması, yine sağlıklı beslenmek, alkol ve sigarada azaltmaya gitmek ve ideal kiloyu korumak gerekiyor.""")
 column_cik.subheader('**Voting pipeline oluşturulduktan sonra başarı metrikleri**')
-column_cik.image(['media/acc.png'])
+column_cik.image(['media/acc.png', 'rb'])
 
 model = get_model()
 
@@ -96,7 +96,7 @@ column_tav.write(df)
 
 column_vht, column_names = tab_team.columns(2, gap='large')
 
-column_vht.image('media/vht.jpeg')
+column_vht.image('media/vht.jpeg', 'rb')
 column_names.title('- Yasemin Derya Dilli')
 column_names.write('<img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="Linkedin" width="25">', unsafe_allow_html=True)
 column_names.markdown("[buraya tıklayın](https://www.linkedin.com/in/yaseminderyadilli/)")
